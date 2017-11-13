@@ -1,5 +1,8 @@
 # prometheus_exporters
 
+## 0.5.0
+- [Matt Mencel] - wmi_exporter recipe
+
 ## 0.4.2
 - [Viktor Radnai] - Bugfix for starting redis process as the specified user
 

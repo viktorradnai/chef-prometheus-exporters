@@ -2,7 +2,7 @@
 
 Cookbook to install and configure various Prometheus exporters on systems to be monitored by Prometheus.
 
-Currently supported exporters are node, postgres, redis and snmp. More may be added in the future. Please contact the author if you have specific requests.
+Currently supported exporters are node, postgres, redis, snmp, and wmi. More may be added in the future. Please contact the author if you have specific requests.
 
 All of the exporters are available as chef custom resources that can be instantiated from other cookbooks.
 
@@ -11,6 +11,7 @@ All of the exporters are available as chef custom resources that can be instanti
 
 Ubuntu 14 & 16 (and probably other Debian based distributions)
 CentOS 6 and 7 (and probably other RHEL based distributions)
+Windows Server 2012 & 2016 (wmi_exporter recipe only)
 
 # Resources
 
@@ -70,6 +71,25 @@ postgres_exporter '9.5_main' do
   user 'postgres'
 end
 ```
+
+## wmi_exporter
+
+Depends on the Chocolatey package manager.
+
+* `version`, String, default: '0.2.7'
+* `enabled_collectors`, String, default: 'cpu,cs,logical_disk,net,os,service,system'
+* `listen_address`, String, default: '0.0.0.0'
+* `listen_port`, String, default: '9182'
+* `metrics_path`, Strin, default: '/metrics'
+
+Use the given defaults or set the attributes...
+
+* `node['prometheus_exporters']['wmi']['version']['listen_interface']`
+* `node['prometheus_exporters']['wmi']['listen_address']`
+* `node['prometheus_exporters']['wmi']['listen_port']`
+* `node['prometheus_exporters']['wmi']['metrics_path']`
+
+and add `recipe['prometheus_exporters::wmi]` to your run_list.
 
 # Known Issues
 
