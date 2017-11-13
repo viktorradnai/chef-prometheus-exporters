@@ -10,7 +10,9 @@ All of the exporters are available as chef custom resources that can be instanti
 # Supports
 
 Ubuntu 14 & 16 (and probably other Debian based distributions)
+
 CentOS 6 and 7 (and probably other RHEL based distributions)
+
 Windows Server 2012 & 2016 (wmi_exporter recipe only)
 
 # Resources
