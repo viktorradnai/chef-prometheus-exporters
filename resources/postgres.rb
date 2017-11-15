@@ -19,6 +19,9 @@ property :web_telemetry_path, String
 property :user, String, default: 'postgres'
 
 action :install do
+  # Set property that can be queried with Chef search
+  node.default['prometheus_exporters']['postgres']['enabled'] = true
+
   service_name = "postgres_exporter_#{instance_name}"
 
   options = "-web.listen-address '#{web_listen_address}'"
