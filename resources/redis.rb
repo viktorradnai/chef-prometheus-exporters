@@ -22,6 +22,9 @@ property :namespace, String, default: 'redis'
 property :user, String, default: 'root'
 
 action :install do
+  # Set property that can be queried with Chef search
+  node.default['prometheus_exporters']['redis']['enabled'] = true
+
   options = "-web.listen-address #{web_listen_address}"
   options += " -web.telemetry-path #{web_telemetry_path}"
   options += " -log-format #{log_format}"

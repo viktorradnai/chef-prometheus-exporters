@@ -93,6 +93,15 @@ Use the given defaults or set the attributes...
 
 and add `recipe['prometheus_exporters::wmi]` to your run_list.
 
+# Discovery
+
+Each exporter will set an attribute when it's enabled, in the form of `node['prometheus_exporters'][exporter_name]['enabled']`. This makes it possible to search for
+exporters within your environment using knife search or from within other cookbooks using a query such as:
+
+```knife search node 'prometheus_exporters_node_enabled:true'```
+
+This query will return all nodes with configured node exporters which can be used for automatically configuring Prometheus servers.
+
 # Known Issues
 
 * The snmp_exporter requires a configuration file that is usually created by a config generator. Currently this functionality must be provided by a wrapper cookbook.

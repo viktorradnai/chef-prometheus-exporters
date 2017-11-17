@@ -2,6 +2,7 @@
 
 ## 0.5.0
 - [Matt Mencel] - wmi_exporter recipe
+- [Viktor Radnai] - Adding 'enabled' node property for each exporter for use with Chef search
 
 ## 0.4.2
 - [Viktor Radnai] - Bugfix for starting redis process as the specified user
